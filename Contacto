@@ -1,0 +1,46 @@
+import Header from "./Header"
+
+function Contacto(){
+
+    function handleSumit(e){
+        e.preventDefault()
+        console.log(e.target.fullName.value);
+        console.log(e.target.reason.value);
+        console.log(e.targe.fullName.value);
+
+        let contacto ={
+            nombreCompleto: e.target.fullName.value,
+            motivo: e.target.reason.value,
+            mensaje: e.target.mensaje.value
+        }
+
+    }
+    return(
+        <>
+        <Header/>
+
+        <h3>contacto</h3>
+        <form onSumit={handleSumit} className= "contactoForm">
+
+        <label htmlFor="fulName">Nombre Completo</label>
+        <input type="text" name="fullName" id="fulName" required/>
+
+        <label htmlFor="reason">Razon del contacto</label>
+        <select name="reason" id="reason" required>
+        <option value="turnos">Turnos Disponibles</option>
+        <option value="inconveniente">Inconveniente</option>
+        <option value="veterinario">Veterinario</option>
+        </select>
+        
+        <label htmlFor="mansaje">Escriba su mensaje</label>
+        <textarea name="mensaje" id="mensaje" cols="30" rows="10" required>
+        </textarea>
+
+        <button type="submit">Enviar</button>
+
+        
+        </form>
+        </>
+    )
+}
+export default Contacto
